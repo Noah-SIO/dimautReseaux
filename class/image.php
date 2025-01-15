@@ -53,7 +53,7 @@ class ManagerImage{
             if($donneesImage != NULL){
                 for ($i=0 ; $i<count($donneesImage) ;$i++){
                     $tableauImage[]= new Image($donneesImage[$i]['id'],$donneesImage[$i]['id_batiments'],
-                    $donneesreImage[$i]['liens']);                
+                    $donneesImage[$i]['liens']);                
                 }
                 return $tableauImage;
             }
