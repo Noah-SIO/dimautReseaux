@@ -84,6 +84,37 @@ class ManagerSwitch{
         $this -> bd = new PDO("mysql:host=localhost;dbname=dimreseaux", 'root', '');
     }
 
+    public function getSwitchByBaieId($id){
+        $sql = "SELECT * FROM switch WHERE id_baie = $id";
+        $sql = $this->bd->prepare($sql);
+        $sql->execute();
+        $donneesSwitch = $sql->fetch(PDO::FETCH_ASSOC);
+        $tableauSwitch= array();
+        if($donneesSwitch != NULL){
+            for ($i=0 ; $i<count($donneesSwitch) ;$i++){
+                $tableauSwitch[]= new Switch($donneesSwitch['id'],$donneesSwitch['id_baie'],
+                $donneesSwitch['marque'],$donneesSwitch['modele'],$donneesSwitch['nb_port'],$donneesSwitch['type liaison'],$donneesSwitch['img']);                    
+            }                                   
+        return $tableauSwitch;
+    }
+    }
+
+    public function getSwitchInfo($id){
+        $sql = "SELECT * FROM switch WHERE id=$id";
+        $sql = $this->bd->prepare($sql);
+        $sql->execute();
+        $donneesSwitch = $sql->fetch(PDO::FETCH_ASSOC);
+        $tableauSwitch= array();
+        if($donneesSwitch != NULL){      
+            $tableauSwitch[]= new Switch($donneesSwitch['id'],$donneesSwitch['id_baie'],
+            $donneesSwitch['marque'],$donneesSwitch['modele'],$donneesSwitch['nb_port'],$donneesSwitch['type liaison'],$donneesSwitch['img']);                                
+        //var_dump($tableauSearchByID);
+        return $tableauSwitch;
+    }
+    }
+
+    
+
 
 
 }
