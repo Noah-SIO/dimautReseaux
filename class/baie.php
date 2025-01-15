@@ -84,6 +84,35 @@ class ManagerBaie{
         $this -> bd = new PDO("mysql:host=localhost;dbname=dimreseaux", 'root', '');
     }
 
+    public function getBaieByBatId($id){
+        $sql = "SELECT * FROM baie WHERE id_batiments = $id";
+        $sql = $this->bd->prepare($sql);
+        $sql->execute();
+        $donneesBaie = $sql->fetch(PDO::FETCH_ASSOC);
+        $tableauBaie= array();
+        if($donneesBaie != NULL){
+            for ($i=0 ; $i<count($donneesBaie) ;$i++){
+                $tableauBaie[]= new Baie($donneesBaie['id'],$donneesBaie['id_batiments'],
+                $donneesBaie['nom'],$donneesBaie['pourcentage_utilisation'],$donneesBaie['type liaison'],$donneesBaie['nb_switch'],$donneesBaie['img']);                    
+            }                                   
+        return $tableauBaie;
+    }
+    }
+
+    public function getBaieInfo($id){
+        $sql = "SELECT * FROM baie WHERE id=$id";
+        $sql = $this->bd->prepare($sql);
+        $sql->execute();
+        $donneesBaie = $sql->fetch(PDO::FETCH_ASSOC);
+        $tableauBaie= array();
+        if($donneesBaie != NULL){      
+            $tableauBaie[]= new Baie($donneesBaie['id'],$donneesBaie['id_batiments'],
+            $donneesBaie['nom'],$donneesBaie['pourcentage_utilisation'],$donneesBaie['type liaison'],$donneesBaie['nb_switch'],$donneesBaie['img']);                             
+        //var_dump($tableauSearchByID);
+        return $tableauBaie;
+    }
+    }
+
 
 
 }
