@@ -76,12 +76,12 @@ class ManagerBatiments{
         $sql = $this->bd->prepare($sql);
         $sql->execute();
         $donneesBatiments = $sql->fetch(PDO::FETCH_ASSOC);
-        $tableauSearchByID= array();
+        $tableauBatiments= array();
         if($donneesBatiments != NULL){      
             $tableauBatiments[]= new Batiments($donneesBatiments['id'],$donneesBatiments['nom'],
-            $donneesreBatiments['schema_img'],$donneesBatiments['img']);                                
+            $donneesBatiments['schema_img'],$donneesBatiments['img']);                                
         //var_dump($tableauSearchByID);
-        return $tableauSearchByID;
+        return $tableauBatiments;
     }
     }
 }
