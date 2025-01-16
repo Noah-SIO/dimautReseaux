@@ -65,7 +65,7 @@ class ManagerBatiments{
             if($donneesBatiments != NULL){
                 for ($i=0 ; $i<count($donneesBatiments) ;$i++){
                     $tableauBatiments[]= new Batiments($donneesBatiments[$i]['id'],$donneesBatiments[$i]['nom'],
-                    $donneesreBatiments[$i]['schema_img'],$donneesBatiments[$i]['img']);                
+                    $donneesBatiments[$i]['schema_img'],$donneesBatiments[$i]['img']);                
                 }
                 return $tableauBatiments;
             }
