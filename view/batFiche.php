@@ -1,10 +1,15 @@
 <?php
-require_once('../class/batiments.php');
-require_once('../class/image.php');
+// require_once('../class/batiments.php');
+// require_once('../class/image.php');
 $test2 = new ManagerImage();
 $test = new ManagerBatiments();
+if(isset($_GET['id'])){
 $donneestableau = $test->getBatimentInfo($_GET['id']);
 $donneesimage = $test2->getBatimentImage($_GET['id']);
+}else{
+    $donneestableau = $test->getBatimentInfo($_SESSION['bat']);
+    $donneesimage = $test2->getBatimentImage($_SESSION['bat']);
+}
 echo"<h1> Batiment " . $donneestableau[0]->getNom() . "</h1></br></br>";
 
 $nom = $donneestableau[0]->getNom();
@@ -17,14 +22,15 @@ if(isset($_POST['change'])){
     echo"<button name='changeSchema' value=".$donneestableau[0]->getId().">Schéma</button>";   
     echo"</form></br>";
     for ($i = 0; $i < count($donneesimage); $i++) {
+        //multi photo
         if($nom == "Admin"){
-            echo"<img src='../" . $donneesimage[$i]->getLiens() . "' usemap='#image-map$i'>";
+            echo"<img src='" . $donneesimage[$i]->getLiens() . "' usemap='#image-map$i'>";
             if($i ==0){
 
             }
         }
         elseif($nom == "Saint Andoche"){
-            echo"<img src='../" . $donneesimage[$i]->getLiens() . "' usemap='#image-map".$i."'>";
+            echo"<img src='" . $donneesimage[$i]->getLiens() . "' usemap='#image-map".$i."'>";
                 
                 //map stAndoche1
                 echo "<map name='image-map0'>";
@@ -42,9 +48,9 @@ if(isset($_POST['change'])){
 
 
 
-
+        //une seule photo
         else{
-            echo"<img src='../" . $donneesimage[$i]->getLiens() . "' usemap='#image-map'>";
+            echo"<img src='" . $donneesimage[$i]->getLiens() . "' usemap='#image-map'>";
         }
         if($nom == "C3D"){
             echo "<map name='image-map'>";
@@ -100,7 +106,7 @@ else{
     echo"<button name='change' value=".$donneestableau[0]->getId().">Plan Batiments</button>";   
     echo"</form></br>";
 
-    echo "<img src='../" . $donneestableau[0]->getSchemaImg() . "' usemap='#image-map'>";
+    echo "<img src='" . $donneestableau[0]->getSchemaImg() . "' usemap='#image-map'>";
     
     
     
