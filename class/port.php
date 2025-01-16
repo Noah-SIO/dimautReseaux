@@ -1,6 +1,4 @@
 <?php
-<?php
-
 class Port {
     private $id;
     private $id_switch;

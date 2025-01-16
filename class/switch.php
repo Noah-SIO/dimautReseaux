@@ -1,6 +1,5 @@
 <?php
-
-class Switch {
+class Switche {
     private $id;
     private $id_baie;
     private $marque;
@@ -92,7 +91,7 @@ class ManagerSwitch{
         $tableauSwitch= array();
         if($donneesSwitch != NULL){
             for ($i=0 ; $i<count($donneesSwitch) ;$i++){
-                $tableauSwitch[]= new Switch($donneesSwitch['id'],$donneesSwitch['id_baie'],
+                $tableauSwitch[]= new Switche($donneesSwitch['id'],$donneesSwitch['id_baie'],
                 $donneesSwitch['marque'],$donneesSwitch['modele'],$donneesSwitch['nb_port'],$donneesSwitch['type liaison'],$donneesSwitch['img']);                    
             }                                   
         return $tableauSwitch;
@@ -106,7 +105,7 @@ class ManagerSwitch{
         $donneesSwitch = $sql->fetch(PDO::FETCH_ASSOC);
         $tableauSwitch= array();
         if($donneesSwitch != NULL){      
-            $tableauSwitch[]= new Switch($donneesSwitch['id'],$donneesSwitch['id_baie'],
+            $tableauSwitch[]= new Switche($donneesSwitch['id'],$donneesSwitch['id_baie'],
             $donneesSwitch['marque'],$donneesSwitch['modele'],$donneesSwitch['nb_port'],$donneesSwitch['type liaison'],$donneesSwitch['img']);                                
         //var_dump($tableauSearchByID);
         return $tableauSwitch;
