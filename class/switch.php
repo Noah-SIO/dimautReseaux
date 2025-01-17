@@ -87,12 +87,12 @@ class ManagerSwitch{
         $sql = "SELECT * FROM switch WHERE id_baie = $id";
         $sql = $this->bd->prepare($sql);
         $sql->execute();
-        $donneesSwitch = $sql->fetch(PDO::FETCH_ASSOC);
+        $donneesSwitch = $sql->fetchall(PDO::FETCH_ASSOC);
         $tableauSwitch= array();
         if($donneesSwitch != NULL){
             for ($i=0 ; $i<count($donneesSwitch) ;$i++){
-                $tableauSwitch[]= new Switche($donneesSwitch['id'],$donneesSwitch['id_baie'],
-                $donneesSwitch['marque'],$donneesSwitch['modele'],$donneesSwitch['nb_port'],$donneesSwitch['type liaison'],$donneesSwitch['img']);                    
+                $tableauSwitch[]= new Switche($donneesSwitch[$i]['id'],$donneesSwitch[$i]['id_baie'],
+                $donneesSwitch[$i]['marque'],$donneesSwitch[$i]['modele'],$donneesSwitch[$i]['nb_port'],$donneesSwitch[$i]['type_liaison'],$donneesSwitch[$i]['img']);                    
             }                                   
         return $tableauSwitch;
     }
@@ -106,7 +106,7 @@ class ManagerSwitch{
         $tableauSwitch= array();
         if($donneesSwitch != NULL){      
             $tableauSwitch[]= new Switche($donneesSwitch['id'],$donneesSwitch['id_baie'],
-            $donneesSwitch['marque'],$donneesSwitch['modele'],$donneesSwitch['nb_port'],$donneesSwitch['type liaison'],$donneesSwitch['img']);                                
+            $donneesSwitch['marque'],$donneesSwitch['modele'],$donneesSwitch['nb_port'],$donneesSwitch['type_liaison'],$donneesSwitch['img']);                                
         //var_dump($tableauSearchByID);
         return $tableauSwitch;
     }
