@@ -13,6 +13,8 @@ if(isset($_GET['act'])){
     }if($act == "batList"){ //boutton acceuil
         require_once("view/bvn.php");
         require_once("view/batList.php");
+    }if($act == "baieFiche"){
+        require_once("view/baiefiche.php");
     }
     
     
