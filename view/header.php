@@ -3,7 +3,7 @@ echo '<!DOCTYPE html>';
 echo '<html lang="fr">';
 echo '<head>';
 echo '<meta charset="UTF-8">';
-echo '<title>Mon Site</title>';
+echo '<title>DimAutReseaux</title>';
 echo '<link rel="stylesheet" href="styles.css">';
 echo '</head>';
 echo '<body>';

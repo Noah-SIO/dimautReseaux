@@ -10,7 +10,7 @@ $donneesimage = $test2->getBatimentImage($_GET['id']);
     $donneestableau = $test->getBatimentInfo($_SESSION['bat']);
     $donneesimage = $test2->getBatimentImage($_SESSION['bat']);
 }
-echo"<h1 style='font-size:40px;text-decoration: underline;'> Batiment " . $donneestableau[0]->getNom() . "</h1></br>";
+echo"<h1 style='text-decoration: underline;'> Batiment " . $donneestableau[0]->getNom() . "</h1></br>";
 
 $nom = $donneestableau[0]->getNom();
 
@@ -19,7 +19,7 @@ if(isset($_POST['change'])){
     //affichage map du batiments
 
     echo"<form action='' method='post'>";
-    echo"<button name='changeSchema' value=".$donneestableau[0]->getId().">Schéma</button>";   
+    echo"<button style='background-color:powderblue;' name='changeSchema' value=".$donneestableau[0]->getId().">Schéma</button>";   
     echo"</form></br>";
     for ($i = 0; $i < count($donneesimage); $i++) {
         //multi photo
@@ -127,7 +127,7 @@ else{
     //affichage schéma
 
     echo"<form action='' method='post'>";
-    echo"<button name='change' value=".$donneestableau[0]->getId().">Plan Batiments</button>";   
+    echo"<button style='background-color:#FFCCCB;' name='change' value=".$donneestableau[0]->getId().">Plan Batiments</button>";   
     echo"</form></br>";
     echo"<div style='text-align: center;'>";
     echo "<img src='" . $donneestableau[0]->getSchemaImg() . "' usemap='#image-map'>";
