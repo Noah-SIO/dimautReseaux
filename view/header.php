@@ -1,4 +1,14 @@
 <?php
+echo '<!DOCTYPE html>';
+echo '<html lang="fr">';
+echo '<head>';
+echo '<meta charset="UTF-8">';
+echo '<title>Mon Site</title>';
+echo '<link rel="stylesheet" href="styles.css">';
+echo '</head>';
+echo '<body>';
+echo "<header style='background-color:lightgrey;'>";
+echo"<div style='background-color:lightgrey;'>";
 echo "<table style='width: 100%; text-align: center;'>";
 echo "<tr>";
 echo "<td><button onclick=\"window.location.href='?act=admin'\">Admin</button></td>";
@@ -12,3 +22,5 @@ echo "<td><button onclick=\"window.location.href='?act=haas'\">Haas</button></td
 echo "</tr>";
 echo "</table>";
 echo"<hr>";
+echo"</div>";
+echo '</header>';
