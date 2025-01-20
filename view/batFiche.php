@@ -10,7 +10,7 @@ $donneesimage = $test2->getBatimentImage($_GET['id']);
     $donneestableau = $test->getBatimentInfo($_SESSION['bat']);
     $donneesimage = $test2->getBatimentImage($_SESSION['bat']);
 }
-echo"<h1> Batiment " . $donneestableau[0]->getNom() . "</h1></br></br>";
+echo"<h1 style='font-size:40px;text-decoration: underline;'> Batiment " . $donneestableau[0]->getNom() . "</h1></br>";
 
 $nom = $donneestableau[0]->getNom();
 
@@ -24,8 +24,9 @@ if(isset($_POST['change'])){
     for ($i = 0; $i < count($donneesimage); $i++) {
         //multi photo
         if($nom == "Admin"){
-            echo"<img src='" . $donneesimage[$i]->getLiens() . "' usemap='#image-map$i'>";
-            
+            echo"<div style='text-align: center;'>";
+            echo"<img style='text-align:center;' src='" . $donneesimage[$i]->getLiens() . "' usemap='#image-map$i'>";
+            echo"</div>";
             //map Admin1
             echo "<map name='image-map0'>";
                 echo "<area target='' alt='ADM-AC-SS' title='ADM-AC-SS' href='?id=19&amp;act=baieFiche' coords='481,299,538,334' shape='rect'>";
@@ -47,8 +48,9 @@ if(isset($_POST['change'])){
             //map Admin2
         }
         elseif($nom == "Principal/TMD"){
+            echo"<div style='text-align: center;'>";
             echo"<img src='" . $donneesimage[$i]->getLiens() . "' usemap='#image-map".$i."'>";
-                
+            echo"</div>";
                 //map stAndoche1
                 echo "<map name='image-map0'>";
                     echo "<area target='' alt='STA-AC-B1' title='STA-AC-B1' href='?id=1&act=baieFiche' coords='589,720,641,773' shape='rect'>";
@@ -67,19 +69,21 @@ if(isset($_POST['change'])){
 
         //une seule photo
         else{
+            echo"<div style='text-align: center;'>";
             echo"<img src='" . $donneesimage[$i]->getLiens() . "' usemap='#image-map'>";
+            echo"</div>";
         }
         if($nom == "C3D"){
             echo "<map name='image-map'>";
-                echo "<area target='' alt='C3D-AC-I1' title='C3D-AC-I1' href='' coords='88,460,138,493' shape='rect'>";
-                echo "<area target='' alt='C3D-SR-I1' title='C3D-SR-I1' href='' coords='87,496,140,520' shape='rect'>";
-                echo "<area target='' alt='C3D-AC-I2/bis' title='C3D-AC-I2/bis' href='' coords='386,75,714,123' shape='rect'>";
-                echo "<area target='' alt='C3D-SR-I3bis' title='C3D-SR-I3bis' href='' coords='1133,65,1198,117' shape='rect'>";
-                echo "<area target='' alt='C3D-AC-I3' title='C3D-AC-I3' href='' coords='1201,65,1254,115' shape='rect'>";
-                echo "<area target='' alt='C3D-AC-I4' title='C3D-AC-I4' href='' coords='964,605,1046,648' shape='rect'>";
-                echo "<area target='' alt='C3D-AC-I5' title='C3D-AC-I5' href='' coords='401,605,460,646' shape='rect'>";
-                echo "<area target='' alt='C3D-AC-I6' title='C3D-AC-I6' href='' coords='353,425,411,465' shape='rect'>";
-                echo "<area target='' alt='C3D-AC-I7' title='C3D-AC-I7' href='' coords='922,313,997,353' shape='rect'>";
+                echo "<area target='' alt='C3D-AC-I1' title='C3D-AC-I1' href='?id=29&act=baieFiche' coords='88,460,138,493' shape='rect'>";
+                echo "<area target='' alt='C3D-SR-I1' title='C3D-SR-I1' href='?id=30&act=baieFiche' coords='87,496,140,520' shape='rect'>";
+                echo "<area target='' alt='C3D-AC-I2/bis' title='C3D-AC-I2/bis' href='?id=31&act=baieFiche' coords='386,75,714,123' shape='rect'>";
+                echo "<area target='' alt='C3D-SR-I3bis' title='C3D-SR-I3bis' href='?id=32&act=baieFiche' coords='1133,65,1198,117' shape='rect'>";
+                echo "<area target='' alt='C3D-AC-I3' title='C3D-AC-I3' href='?id=33&act=baieFiche' coords='1201,65,1254,115' shape='rect'>";
+                echo "<area target='' alt='C3D-AC-I4' title='C3D-AC-I4' href='?id=34&act=baieFiche' coords='964,605,1046,648' shape='rect'>";
+                echo "<area target='' alt='C3D-AC-I5' title='C3D-AC-I5' href='?id=35&act=baieFiche' coords='401,605,460,646' shape='rect'>";
+                echo "<area target='' alt='C3D-AC-I6' title='C3D-AC-I6' href='?id=36&act=baieFiche' coords='353,425,411,465' shape='rect'>";
+                echo "<area target='' alt='C3D-AC-I7' title='C3D-AC-I7' href='?id=37&act=baieFiche' coords='922,313,997,353' shape='rect'>";
             echo "</map>";
         }
         if($nom=="CROM"){
@@ -125,9 +129,9 @@ else{
     echo"<form action='' method='post'>";
     echo"<button name='change' value=".$donneestableau[0]->getId().">Plan Batiments</button>";   
     echo"</form></br>";
-
+    echo"<div style='text-align: center;'>";
     echo "<img src='" . $donneestableau[0]->getSchemaImg() . "' usemap='#image-map'>";
-    
+    echo"</div>";
     
     
     #maps image des différents liens
@@ -154,15 +158,15 @@ else{
     }
     if($nom == "C3D"){
         echo "<map name='image-map'>";
-            echo "<area target='' alt='C3D-AC-I1' title='C3D-AC-I1' href='baiefiche.php?id=' coords='182,223,350,162' shape='rect'>";
-            echo "<area target='' alt='C3D-SR-I1' title='C3D-SR-I1' href='baiefiche.php?id=' coords='380,150,535,211' shape='rect'>";
-            echo "<area target='' alt='C3D-AC-I2' title='C3D-AC-I2' href='baiefiche.php?id=' coords='551,174,721,217' shape='rect'>";
-            echo "<area target='' alt='C3D-AC-I3' title='C3D-AC-I3' href='baiefiche.php?id=' coords='758,203,921,257' shape='rect'>";
-            echo "<area target='' alt='C3D-SR-I3bis' title='C3D-SR-I3bis' href='baiefiche.php?id=' coords='701,387,867,444' shape='rect'>";
-            echo "<area target='' alt='C3D-AC-I4' title='C3D-AC-I4' href='baiefiche.php?id=' coords='541,452,703,496' shape='rect'>";
-            echo "<area target='' alt='C3D-AC-I5' title='C3D-AC-I5' href='baiefiche.php?id=' coords='372,404,533,455' shape='rect'>";
-            echo "<area target='' alt='C3D-AC-I6' title='C3D-AC-I6' href='baiefiche.php?id=' coords='152,397,311,456' shape='rect'>";
-            echo "<area target='' alt='C3D-AC-I7' title='C3D-AC-I7' href='baiefiche.php?id=' coords='668,489,851,539' shape='rect'>";
+            echo "<area target='' alt='C3D-AC-I1' title='C3D-AC-I1' href='?id=29&act=baieFiche' coords='182,223,350,162' shape='rect'>";
+            echo "<area target='' alt='C3D-SR-I1' title='C3D-SR-I1' href='?id=30&act=baieFiche' coords='380,150,535,211' shape='rect'>";
+            echo "<area target='' alt='C3D-AC-I2' title='C3D-AC-I2' href='?id=31&act=baieFiche' coords='551,174,721,217' shape='rect'>";
+            echo "<area target='' alt='C3D-AC-I3' title='C3D-AC-I3' href='?id=32&act=baieFiche' coords='758,203,921,257' shape='rect'>";
+            echo "<area target='' alt='C3D-SR-I3bis' title='C3D-SR-I3bis' href='?id=33&act=baieFiche' coords='701,387,867,444' shape='rect'>";
+            echo "<area target='' alt='C3D-AC-I4' title='C3D-AC-I4' href='?id=34&act=baieFiche' coords='541,452,703,496' shape='rect'>";
+            echo "<area target='' alt='C3D-AC-I5' title='C3D-AC-I5' href='?id=35&act=baieFiche' coords='372,404,533,455' shape='rect'>";
+            echo "<area target='' alt='C3D-AC-I6' title='C3D-AC-I6' href='?id=36&act=baieFiche' coords='152,397,311,456' shape='rect'>";
+            echo "<area target='' alt='C3D-AC-I7' title='C3D-AC-I7' href='?id=37&act=baieFiche' coords='668,489,851,539' shape='rect'>";
         echo "</map>";
     }
     if($nom == "CROM"){
